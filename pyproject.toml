@@ -1,0 +1,29 @@
+[project]
+name = "falsifyphys-nanoforge-c2"
+version = "0.1.0"
+description = "FalsifyPhys NanoForge-C2: paper-calibrated protocol planner for C2 mechanosynthesis on H:Si(100)."
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.24",
+  "pydantic>=2.0",
+  "pyyaml>=6.0",
+  "networkx>=3.0",
+  "typer>=0.9",
+  "rich>=13.0"
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+web = []
+evolve = ["shinka-evolve"]
+
+[project.scripts]
+nanoforge-c2 = "falsify.nanoforge_c2.cli:app"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
